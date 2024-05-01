@@ -1,0 +1,186 @@
+{
+   "data": [
+   {
+     "endpointTitle": "Stock on Shelf",
+     "items": [
+       {
+         "item-name": "MS12 Anti-Masking (Black-White Lenses)",
+         "count": 0,
+         "item-code": "PT0120_MS12_AM",
+         "id": 1
+       },
+       {
+         "item-name": "MS12 Anti-Masking (White-White Lenses)",
+         "count": 0,
+         "item-code": "PT0120_MS12_AM_W",
+         "id": 2
+       },
+       {
+         "item-name": "MS12 Standard (White Lenses)",
+         "count": 0,
+         "item-code": "PT0120_MS12",
+         "id": 3
+       },
+       {
+         "item-name": "MS12 Standard (Black Lenses)",
+         "count": 0,
+         "item-code": "PT0120_MS12_b",
+         "id": 4
+       },
+       {
+         "item-name": "Keypad Kp06",
+         "count": 0,
+         "item-code": "PT0715_KP06",
+         "id": 5
+       },
+       {
+         "item-name": "GSM Unit G14",
+         "count": 0,
+         "item-code": "PT1019_G14",
+         "id": 6
+       },
+       {
+         "item-name": "Interface Module",
+         "count": 0,
+         "item-code": "PT0320_IM15_REP",
+         "id": 7
+       },
+       {
+         "item-name": "Repeater",
+         "count": 0,
+         "item-code": "PT0822_RELAY_LINK",
+         "id": 8
+       },
+       {
+         "item-name": "KwêHub WiFi Only",
+         "count": 0,
+         "item-code": "PT0623_GW_V3",
+         "id": 9
+       },
+       {
+         "item-name": "KwêHub WiFi With 2G Fallback",
+         "count": 0,
+         "item-code": "PT0623_MOD4G_V3",
+         "id": 10
+       }
+     ]
+   },
+   {
+     "endpointTitle": "Completed PCB Stock",
+     "items": [
+       {
+         "item-name": "MS12 Anti Masking PCB",
+         "count": 0,
+         "item-code": "PT0120_MS12_AM_Completed",
+         "id": 1
+       },
+       {
+         "item-name": "MS12 Standard PCB",
+         "count": 0,
+         "item-code": "PT0120_MS12_Completed",
+         "id": 2
+       },
+       {
+         "item-name": "Keypad Kp06 PCB",
+         "count": 0,
+         "item-code": "PT0715_KP06_Completed",
+         "id": 3
+       },
+       {
+         "item-name": "GSM Unit G14 PCB",
+         "count": 0,
+         "item-code": "PT1019_G14_Completed",
+         "id": 4
+       },
+       {
+         "item-name": "Interface Module PCB",
+         "count": 0,
+         "item-code": "PT0320_IM15_Completed",
+         "id": 5
+       },
+       {
+         "item-name": "Repeater PCB",
+         "count": 0,
+         "item-code": "PT0822_RELAY_LINK_Completed",
+         "id": 6
+       },
+       {
+         "item-name": "KwêHub PCB",
+         "count": 0,
+         "item-code": "PT0623_GW_V3_Completed",
+         "id": 7
+       },
+       {
+         "item-name": "KwêHub PCB + 4GMOD",
+         "count": 0,
+         "item-code": "PT0623_MOD4G_V3_Completed",
+         "id": 8
+       }
+     ]
+   },
+   {
+     "endpointTitle": "Bare PCB",
+     "items": [
+       {
+         "item-name": "Bare MS12",
+         "count": 0,
+         "item-code": "PT0120_MS12_Bare",
+         "id": 1
+       },
+       {
+         "item-name": "Bare Keypad Kp06",
+         "count": 0,
+         "item-code": "PT0715_KP06_Bare",
+         "id": 2
+       },
+       {
+         "item-name": "Bare GSM Unit G14",
+         "count": 0,
+         "item-code": "PT1019_G14_Bare",
+         "id": 3
+       },
+       {
+         "item-name": "Bare Interface Module",
+         "count": 0,
+         "item-code": "PT0320_IM15_Bare",
+         "id": 4
+       },
+       {
+         "item-name": "Bare Repeater",
+         "count": 0,
+         "item-code": "PT0822_RELAY_LINK_Bare",
+         "id": 5
+       },
+       {
+         "item-name": "Bare KwêHub PCB",
+         "count": 0,
+         "item-code": "PT0623_GW_V3_Bare",
+         "id": 6
+       },
+       {
+         "item-name": "Bare KwêHub PCB + 4GMOD",
+         "count": 0,
+         "item-code": "PT0623_MOD4G_V3_Bare",
+         "id": 7
+       }
+     ]
+   },
+   {
+     "endpointTitle": "Batteries",
+     "items": [
+       {
+         "item-name": "Boxed Batteries",
+         "count": 0,
+         "item-code": "BOXED_AA",
+         "id": 1
+       },
+       {
+         "item-name": "3 Pack Batteries",
+         "count": 0,
+         "item-code": "PACKED_AA",
+         "id": 2
+       }
+     ]
+   }
+ ]
+}

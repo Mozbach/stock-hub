@@ -1,13 +1,903 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*:not(head, script) {
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    transition: 0.3s all;
+    vertical-align: top;
+    transition: .25s all;
+    font-family: 'Lexend Deca',  sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --hs-blue: #192733;
+    --hs-orange: #ff5c35;
+    --hs-red: #cf2738;
+    --hs-hover-blue: #005fa3;
+    --hs-hover-orange: #e04826;
+    --hs-section-cream: #fef4ea;
+    --hs-green: #1f7d3d;
+    --hs-link-color: #B6C7D6;
+    --hs-general-color: #213343; 
+    --hs-nav-color: #2E475D;
+    --hs-nav-color-pressed: #0068b1;
+    --hs-active-input: #5fa3d4;
+}
+
+body, #root {
+    width: 99.9% !important;
+    color: var(--hs-general-color);
+    padding-bottom: 50px;
+}
+
+.mainDiv {
+    padding: 5px;
+    width: 99%;
+}
+
+.headerH2 {
+    width: 99.5%;
+    font-weight: 400;
+    margin: 10px 0px 10px 0px;
+}
+
+.mainNav {
+    width: 100%;
+    margin-bottom: 5px;
+    border-bottom: 1px ridge var(--hs-blue);
+    box-shadow: 1px 2px 5px silver;
+    background: whitesmoke;
+}
+
+.navLogo {
+    max-width: 110px;
+    float: left;
+    margin: 10px;
+    filter: drop-shadow(1px 2px 5px silver);
+    cursor: pointer;
+}
+
+.navUl {
+    float: right;
+    padding-top: 5px;
+}
+
+.navUl:hover {
+
+}
+
+@media (max-width: 450px) {
+    .navUl {
+        width: 99%;
+        float: none;
+    }
+}
+
+.navLi {
+    padding: 5px;
+    max-width: 120px;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+    filter: drop-shadow(1px 2px 5px silver);
+    transition: .2s all;
+    color: var(--hs-general-color);
+}
+
+.navLi:hover {
+    color: var(--hs-orange);
+}
+
+.navTextSpan {
+    width: 99%;
+    font-size: .8em;
+}
+
+h2 {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px; 
+}
+
+/* This h2 is inside each product of the forms. So, shelf.products.productName */
+.shelfTItleH2 { 
+    font-size: 1em;
+}
+
+/* This is the individual product titles */
+.formProductNameP {
+    width: 99%;
+    padding: 5px;
+    margin-top: -5px;
+    background: silver;
+    border-radius: 0px 0px 5px 5px;
+    color: var(--hs-general-color);
+}
+
+.fontAwesomeProductImage {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    background: whitesmoke;
+    box-shadow: 1px 2px 5px silver;
+    border-radius: 5px;
+}
+
+.productImageDialog {
+    border: none;
+    padding: 5px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px silver;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    z-index: 5;
+}
+
+.dialogImg {
+    max-width: 250px;
+}
+
+.closeProductImageDialog {
+    border: none;
+    padding: 1px 3px 3px 3px ;
+    float: left;
+    background: var(--hs-red);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px var(--hs-hover-orange);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border: none;
+}
+
+.closeProductImageDialog:hover {
+    color: black;
+}
+
+.fontAwesomeProductImage:hover {
+    background: var(--hs-hover-orange);
+}
+
+.stockForm {
+    width: 99%;
+    max-width: 700px;
+    padding: 10px;
+}
+
+.stockForm .fieldsetDiv {
+    position: relative;
+    border-radius: 5px;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(33,51,67,.12);
+    padding: 5px;
+    background: whitesmoke;
+    border: 1px ridge silver;
+    margin: 5px;;
+}
+
+.stockForm legend {
+    margin: 10px;
+    background: var(--hs-orange);
+    padding: 10px;
+}
+
+.stockForm label {
+    padding: 5px;
+    width: 99%;
+}
+
+.stockForm input {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    border: 1px ridge var(--hs-active-input);
+    box-shadow: 0 2px 4px rgba(33,51,67,.12);
+    max-width: 100px;
+}
+
+.stockForm input:hover {
+    background: whitesmoke;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 330px) {
+    .stockForm input {
+        max-width: 70px;
+        height: 34px;
+    }
+}
+
+.shelfHolderDiv {
+    border: 1px ridge silver;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px silver;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+}
+
+.inputAndButtons {
+}
+
+.inputButton {
+    margin: 10px 3px 10px 3px;
+    padding: 8px;
+    width: 34px;
+    color: var(--hs-link-color);
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.addInputButton {
+    border: 1px ridge var(--hs-green);
+    color: var(--hs-green);
+}
+
+.addInputButton:hover {
+    background: var(--hs-green);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px black;
+}
+
+.subtractInputButton {
+    border: 1px ridge var(--hs-red);
+    color: var(--hs-red)
+}
+
+.subtractInputButton:hover {
+    background: var(--hs-red);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px black;
+}
+
+.formGroupInnerDiv {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 300px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(33,51,67,.12);
+}
+
+.stockButton {
+    margin: 2.5px 2.5px 2.5px 2.5px;
+    border: none;
+    height: 45%;
+    color: var(--hs-link-color);
+    font-size: 1.5em;
+    min-width: 130px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stockButton:hover {
+    box-shadow: none;
+    background: silver;
+    color: var(--hs-general-color);
+}
+
+@media (max-width: 870px) {
+    .formGroupInnerDiv {
+        position: static;
+        max-width: 200px;
+    }
+
+    .stockForm label {
+        min-height: 50px;
+    }
+
+    .stockButton {
+        width: 40%;
+        position: static;
+        min-width: 20px;
+    }
+
+    .stockForm {
+        width: 90%;
+    }
+
+    .stockForm input {
+        padding: 5px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 555px) {
+    .formGroupInnerDiv {
+        width: 90%;
+        max-width: 1000px;
+    }
+}
+
+.plusStockButton {
+    background: var(--hs-green);
+}
+
+.minusStockButton {
+    background: var(--hs-red);
+}
+
+.formSubmitButton {
+    padding: 10px;
+    background: var(--hs-orange);
+    color: whitesmoke;
+    cursor: pointer;
+    border: 1px ridge var(--hs-hover-orange);
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px silver;
+    margin: 20px 0px 20px 0px;
+}
+
+.formSubmitButton:hover {
+    background: var(--hs-hover-orange);
+}
+
+.formSubmitButton .formButtonIcon  {
+    position: absolute;
+    margin-left: 5px;
+    
+}
+
+.formSubmitButton:hover .formButtonIcon {
+
+    transform: translateX(40px);
+}
+
+.formButtonIcon {
+
+}
+
+.currentCountP {
+    width: 50%;
+}
+
+/* Login and Registration Form Styling - Mostly the same as the other stockForm, but I just wanted to keep them separate in case of randomness */
+
+.loginRegistrationForm {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    /* border: 1px ridge var(--hs-blue); */
+    /* box-shadow: 1px 2px 5px silver; */
+    /* background: whitesmoke; */
+    margin: 10px 0px 10px 0px;
+}
+
+.loginRegistrationForm:hover {
+    
+}
+
+.passwordInputDiv {
+    width: 100%;
+}
+
+.loginRegistrationField {
+    padding: 10px 0px 10px 0px;
+    width: 85%;
+    max-width: 400px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 10px 0px 10px 0px;
+    border: 1px ridge var(--hs-active-input);
+    box-shadow: 0 2px 4px rgba(33,51,67,.12);
+}
+
+.loginRegistrationField:hover {
+    background: var(--hs-link-color);
+}
+
+.formField {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+}
+
+.formFieldIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(15px);
+    margin-top: 14px;
+    background: whitesmoke;
+    border: 1px ridge var(--hs-nav-color-pressed);
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.forgotPasswordLink {
+    float: right;
+    color: var(--hs-red);
+    font-size: 0.8em;
+    border: 1px ridge transparent;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -5px;
+}
+
+.forgotPasswordLink:hover {
+    border: 1px ridge var(--hs-red);
+}
+
+.insteadLink {
+    padding: 5px;
+    border: 1px ridge var(--hs-green);
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 12px;
+}
+
+.insteadLink:hover {
+    color: var(--hs-hover-blue);
+    background: var(--hs-green);
+    color: whitesmoke;
+    box-shadow: 1px 2px 5px silver;
+}
+
+.signInBar {
+    width: 99%;
+    
+}
+
+.footerWelcomeDiv {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    background: var(--hs-orange);
+    color: whitesmoke;
+    border-radius: 5px 0px 0px 0px;
+}
+
+
+.footerLoginLogoutButton {
+    /* margin and padding: top right bottom left */
+    padding: 2px 15px 2px 15px;
+    cursor: pointer;
+    margin: 0px 5px 0px 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footerLoginLogoutButton:hover {
+    background: var(--hs-blue);
+    color: whitesmoke;
+}
+
+/* This div holds general info items such as paragraphs and lists -> Whatever */
+.generalDiv {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.generalDiv p {
+    text-align: left;
+    font-size: 0.9em;
+    padding: 5px;
+    width: 99%;
+    border-bottom: 1px ridge silver;
+    margin: 5px 0px 5px 0px;
+}
+
+.titleSpan {
+    background: silver;
+    text-align: left;
+}
+
+.profileDetailsH4 {
+    width: 99%;
+    text-align: left;
+    background: whitesmoke;
+    border-radius: 5px;
+    border: 1px ridge var(--);
+    box-shadow: 1px 2px 10px silver;
+    text-shadow: 1px 2px 4px silver;
+    padding: 5px;
+    
+}
+
+.titleIcon {
+    background: whitesmoke;
+    border: 1px ridge var(--hs-nav-color-pressed);
+    padding: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.editDetailsButton {
+    min-width: 60px;
+    float: right;
+    padding: 2px 5px 2px 5px;
+    border: none;
+    cursor: pointer;
+    background: var(--hs-orange);
+    color: whitesmoke;
+    border-radius: 5px;
+}
+
+.editDetailsButton:hover {
+    background: var(--hs-hover-orange)
+}
+
+.editDetailsForm {
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    
+}
+
+.editDetailsForm input {
+    text-align: left;
+    font-size: 0.9em;
+    padding: 5px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px ridge silver;
+    margin: 5px 0px 5px 0px;
+}
+
+.editDetailsFormIcon {
+    padding: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+.profileNameActive {
+    background: var(--hs-active-input);
+    box-shadow: 1px 2px 10px var(--hs-active-input);
+    border-radius: 5px;
+}
+
+.profileEmailActive {
+    background: whitesmoke;
+}
+
+small {
+    background: whitesmoke;
+    padding: 2.5px;
+    border-radius: 5px;
+}
+
+
+/* Spinner Code - I did not write this, this came from my React Front To Back Course */
+
+.loadingSpinnerContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loadingSpinner {
+    animation: spin 1.5s linear infinite;
+    border: 1px ridge whitesmoke;
+    padding: 15px;
+    box-shadow: black 0px 0px 30px -5px;
+    background: var(--hs-general-color);
+    border-radius: 50%;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinnerLogo {
+    max-width: 50px;
+  }
+
+  .loadingText {
+    width: 99%;
+    padding: 5px;
+    position: absolute;
+    margin-top: 150px;
+  }
+
+.socialLoginDiv {
+    width: 99%;
+}
+
+.socialLoginDiv p {
+    width: 99%;
+    padding: 5px;
+}
+
+.socialIconButton {
+    padding: 5px;
+    background: none;
+    border: 1px ridge white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.socialIconImg {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
+    
+}
+
+.socialIconButton:hover {
+    border-bottom: 1px ridge var(--hs-orange);
+    border-top: 1px ridge var(--hs-orange);
+    box-shadow: 1px 2px 5px var(--hs-general-color);
+}
+
+.createFormButton {
+    margin: 5%;
+    padding: 10px;
+    border: 1px ridge var(--hs-hover-orange);
+    cursor: pointer;
+    box-shadow: 1px 2px 5px silver;
+    border-radius: 20px;
+    min-width: 200px;
+    text-shadow: 1px 2px 3px silver;
+}
+
+.createFormButton:hover {
+    background: var(--hs-general-color);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px black;
+    box-shadow: 3px 4px 5px silver;
+
+}
+
+/* Create a new form css */
+.createNewFormForm {
+    width: 99%;
+    max-width: 600px;
+}
+
+.createFormFieldDiv {
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+    width: 99%;
+    max-width: 400px;
+}
+
+.createNewFormLabel {
+    float: left;
+    width: 100%;
+    text-align: left;
+    max-width: 250px;
+    background: whitesmoke;
+    color: var(--hs-general-color);
+    padding: 2.5px 15px 2.5px 15px;
+    border-top-right-radius: 10px;
+}
+
+.createFormInput {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: whitesmoke;
+    box-shadow: 1px 2px 5px silver;
+    border: 1px ridge var(--hs-active-input);
+    border-radius: 5px;
+}
+
+.createFormInput:active {
+    background: var(--hs-active-input);
+    box-shadow: 1px 2px 10px var(--hs-active-input);
+    border-radius: 5px;
+    border: 1px ridge silver;
+}
+
+.shelfNameDiv {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px ridge var(--hs-blue);
+    background: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.deleteThisShelfButton {
+    border: none;
+    padding: 1px 3px 3px 3px ;
+    float: right;
+    background: var(--hs-red);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px var(--hs-hover-orange);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.deleteThisShelfButton:hover {
+    color: black;
+}
+
+.addShelfButton {
+    width: 99%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 0px 0px 20px 20px;
+    border: none;
+    border: 1px ridge var(--hs-blue);
+    cursor: pointer;
+    margin-top: -15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.addShelfButton:hover {
+    border-left: 1px  ridge var(--hs-blue);
+    border-bottom: 1px  ridge var(--hs-blue);
+    border-right: 1px  ridge var(--hs-blue);
+    background: var(--hs-hover-orange);
+    color: whitesmoke;
+    text-shadow: 1px 2px 3px black;
+}
+
+.addNewProductDiv {
+    border: 1px ridge var(--hs-blue);
+    padding: 15px;
+    box-shadow: 1px 2px 5px silver;
+    border-radius: 5px;
+}
+
+
+.deleteThisProductButton {
+    padding: 2px 5px;
+    font-size: .7em;
+    border: none;
+    float: right;
+    border-radius: 5px;
+    background: var(--hs-red);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    color: whitesmoke;
+    cursor: pointer;
+
+}
+
+.deleteThisProductButton:hover {
+    color: black;
+    text-decoration: line-through;
+}
+
+.addProductButton {
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    background: var(--hs-orange);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.addProductButton:hover {
+    background: var(--hs-hover-orange);
+    box-shadow: 1px 2px 5px silver;
+}
+
+.qtyAndCodeDiv {
+    padding: 2.5px;
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+.addProductDetails {
+    background: whitesmoke;
+    width: 90%;
+    border-top: 1px ridge var(--hs-active-input);
+    box-shadow: 1px 2px 5px silver;
+    border-radius: 0px 0px 5px 5px;
+    padding: 5px;
+}
+
+.addProductDetailsLabel {
+    font-size: .8em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.addProductDetailsInput {
+    padding: 5px;
+    max-width: 60px;
+    background: whitesmoke;
+    box-shadow: 1px 2px 5px silver;
+    border: 1px ridge var(--hs-active-input);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.addProductImageButton {
+    padding: 5px;
+    font-size: 0.7em;
+    background: var(--hs-general-color);
+    color: whitesmoke;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    border-radius: 5px;
+    margin: 2.5px 2.5px 0px 0px;
+}
+
+.addProductImageButton:hover {
+    background: var(--hs-nav-color);
+}
+
+.createFormSubmitButton {
+    min-width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: var(--hs-blue);
+    cursor: pointer;
+    margin-top: 20px;
+    color: whitesmoke;
+}
+
+.createFormSubmitButton:hover {
+    background: var(--hs-nav-color);
+}
+
+/* 
+Single List Link CSS
+*/
+.holdsSingleListLink {
+    background: whitesmoke;
+    border-radius: 10px;
+    border: 1px ridge var(--hs-green);
+    cursor: pointer;
+    color: var(--hs-blue);
+    box-shadow: 1px 2px 5px silver;
+    margin: 10px;
+}
+
+.holdsSingleListLink:hover {
+    background: var(--hs-blue);
+    color: whitesmoke;
+}
+
+.singleLinkH2 {
+    font-size: 1.2em;
+    background: var(--hs-hover-orange);
+    padding: 2px;
+    font-weight: 400;
+    color: whitesmoke;
+    text-shadow: 1px 2px 7px black;
+    border-bottom: 1px ridge var(--hs-blue);
+    margin: 0px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+
+.singleLinkP {
+    padding: 5px;
+    
+    
+}
+
+.innerPspan {
+
 }
