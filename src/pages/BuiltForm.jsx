@@ -1,7 +1,7 @@
 import Spinner from "../components/Spinner";
 import {useState, useEffect} from 'react';
 import {getAuth} from 'firebase/auth';
-import {collection, getDocs, query, where, doc, getDoc, updateDoc, arrayUnion} from 'firebase/firestore';
+import {collection, getDocs, query, where, doc, getDoc, updateDoc} from 'firebase/firestore';
 import {db} from '../firebase.config';
 import {storage} from 'firebase/storage';
 import {useLocation} from 'react-router-dom';
@@ -21,22 +21,20 @@ function BuiltForm() {
   let sessionFormId = sessionStorage.getItem("formId");
 
   // add and minus functions
-  const plusClick = (e, productCode, productName) => {
+  const plusClick = (e, productCode) => {
     e.preventDefault();
     setCounts(previousCounts => ({
         ...previousCounts,
         [productCode]: (previousCounts[productCode] || 0) + 1
     }));
-    console.log(data);
 }
 
-const minusClick = (e, productCode, productName) => {
+const minusClick = (e, productCode) => {
     e.preventDefault();
     setCounts(previousCounts => ({
         ...previousCounts,
         [productCode]: Math.max((previousCounts[productCode] || 0) - 1, 0)
     }));
-    console.log(data);
 }
 
   // Functions to be used within the form, to gather the input total, so that when one clicks + or -, it will either add or subtract that gatheredInput total:
@@ -87,31 +85,33 @@ const minusClick = (e, productCode, productName) => {
   }, [location.state, sessionFormId]);
 
   // I am struggling to actually submit the stock to the Database. I keep getting various errors
-
-  const submitStock = async (e, shelfIndex, productIndex) => {
+  const submitStock = async (e) => {
     e.preventDefault();
-    
-    for (const [productCode, count] of Object.entries(counts)) {
-      try {
-        // Construct the document reference to the product
-        const productRef = doc(db, 'stockFormsCollection', sessionFormId, 'shelves', shelfIndex, 'products', productIndex);
-        
-        // Get the product snapshot to access its data
-        const productSnapshot = await getDoc(productRef);
-        const productData = productSnapshot.data();
-        
-        // Update the currentCount within the product data array
-        productData.currentCount = count;
-        
-        // Update the document with the modified product data
-        await updateDoc(productRef, productData);
-        
-        console.log(`Product successfully updated for ${productCode} to ${count}`);
-      } catch(error) {
-        console.log("Error updating product: ", error);
+    const productRef = doc(db, 'stockFormsCollection', sessionFormId);
+  
+    try {
+      const productSnapshot = await getDoc(productRef);
+      const productData = productSnapshot.data();
+  
+      const updatedProductData = { ...productData }; // Create a copy of the data
+  
+      for (const [productCode, count] of Object.entries(counts)) {
+        for (let i = 0; i < updatedProductData.shelves.length; i++) {
+          for (let j = 0; j < updatedProductData.shelves[i].products.length; j++) {
+            const product = updatedProductData.shelves[i].products[j];
+            if (product.productCode === productCode) { // Find the matching product
+              product.currentCount = count; // Update the count
+            }
+          }
+        }
       }
+  
+      await updateDoc(productRef, updatedProductData); // Update the document with the new data
+      console.log("Product successfully updated");
+    } catch (error) {
+      console.log("Error updating product: ", error);
     }
-  };// end of submitStock
+  };
 
 const [selectedProductIndex, setSelectedProductIndex] = useState(null);
 
@@ -127,8 +127,9 @@ const buildForm = (data) => {
   return data.map((docData, docIndex) => {
     const shelves = docData.shelves;
     return shelves.map((shelf, shelfIndex) => (
+
       <div className="shelfHolderDiv" key={shelfIndex}>
-        <h2 className="shelfTItleH2" key={shelfIndex}>{shelf.shelfName}</h2>
+        <h2 className="shelfTItleH2">{shelf.shelfName}</h2>
         {shelf.products.map((product, productIndex) => (
           <div className="fieldsetDiv" key={productIndex}>
             <FontAwesomeIcon onClick={() => showProductImage(shelfIndex, productIndex)} className="fontAwesomeProductImage" icon={faImage} style={{ fontSize: '18px' }} />

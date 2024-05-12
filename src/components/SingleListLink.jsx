@@ -52,6 +52,8 @@ function SingleListLink() {
             <h2 className="singleLinkH2">{form.formName}</h2>   
             <p className="singleLinkP">Total Shelves: {form.shelves ? form.shelves.length : 0}</p>
             <p className="singleLinkP">Total Products: {form.shelves ? form.shelves.reduce((acc, shelf) => acc + shelf.products.length, 0) : 0}</p>
+            <br></br>
+            <small className="smallFormId">{form.id}</small>
         </Link>
             )
         })}

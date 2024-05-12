@@ -898,6 +898,8 @@ Single List Link CSS
     
 }
 
-.innerPspan {
-
+.smallFormId {
+    color: var(--hs-red);
+    width: 90%;
+    margin: 5px;
 }
