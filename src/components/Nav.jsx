@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListCheck, faPersonDigging, faEye } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import defaultLogo from '../assets/stockhub-logo.png';
+import defaultLogo from '../assets/stock-hub-logo-4.png';
 
 
 function Nav() {

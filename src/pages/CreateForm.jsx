@@ -140,7 +140,7 @@ function CreateForm() {
     }
 
     const deleteThisProduct = (shelfIndex, productIndex) => {
-        console.log("Shelf Shelf Name: " + formData.shelves[shelfIndex].shelfName + "Product Index: " + productIndex + "Product Name: " + shelf.products[productIndex].productName);
+        console.log("Shelf Shelf Name: " + formData.shelves[shelfIndex].shelfName + "Product Index: " + productIndex + "Product Name: " + formData.shelves[shelfIndex].products[productIndex].productName);
         setFormData((prevFormData) => ({
             ...prevFormData,
             shelves: prevFormData.shelves.map((shelf, index) => {
